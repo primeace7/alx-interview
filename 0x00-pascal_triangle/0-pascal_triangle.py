@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 An iterative implementation of Pascal's tringle generator
 """
