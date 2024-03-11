@@ -3,6 +3,7 @@
 An iterative implementation of Pascal's tringle generator
 """
 
+
 def pascal_triangle(n):
     """ generate and return a list of lists representing pascal's trinagle
     of size n
@@ -13,7 +14,7 @@ def pascal_triangle(n):
 
     for i in range(n):
         row = []
-            
+
         for j in range(i + 1):
             if j == 0 or j == i:
                 row.append(1)
