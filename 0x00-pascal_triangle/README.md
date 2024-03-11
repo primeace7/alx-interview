@@ -1,0 +1,2 @@
+The solution file for generating Pascal's triangle of size n. The entire triangle is generated
+as a list of lists. each row of the triangle is represented by one list in the list of lists, in ascending order.
