@@ -21,6 +21,8 @@ def canUnlockAll(boxes):
             found_keys.update({i, key})
             if found_keys >= all_keys:
                 return True
+            if key >= len(boxes):
+                continue
             for item in boxes[key]:
                 found_keys.add(item)
                 if found_keys >= all_keys:
