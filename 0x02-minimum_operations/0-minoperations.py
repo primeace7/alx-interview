@@ -29,5 +29,5 @@ def get_factors(n: int, result: List):
     for i in range(2, root):
         if n % i == 0:
             result.append(i)
-            return get_factors(n//i, result)
+            return get_factors(n // i, result)
     return result.append(n)
