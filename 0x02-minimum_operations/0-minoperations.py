@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Implementation of solution for the minimum operations problem.'''
+"""Implementation of solution for the minimum operations problem."""
 
 
 from typing import Any, List
@@ -7,10 +7,9 @@ from math import sqrt
 
 
 def minOperations(n: Any) -> int:
-    '''
-    Calculate and return the minimum number of opertions to result in n
+    """Calculate and return the minimum number of opertions to result in n
     characters in a file if only copy and paste operations are possible
-    '''
+    """
     if type(n) is not int or n < 2:
         return 0
 
@@ -20,8 +19,7 @@ def minOperations(n: Any) -> int:
 
 
 def get_factors(n: int, result: List):
-    '''return the prime factors of a given input number'''
-
+    """Return the prime factors of a given input number"""
     if n < 2:
         return result
     root = int(sqrt(n)) + 2
