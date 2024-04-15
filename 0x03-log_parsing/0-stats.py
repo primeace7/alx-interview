@@ -33,7 +33,7 @@ def parse_line(line: str) -> None:
 def print_records() -> None:
     '''print all extracted stats from analysed log'''
     print(f'File size: {recorder[2]}')
-    for key in recorder[1].keys():
+    for key in sorted(recorder[1].keys()):
         print(f'{key}: {recorder[1][key]}')
 
 
