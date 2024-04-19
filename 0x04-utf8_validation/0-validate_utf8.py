@@ -9,7 +9,6 @@ def getspan(data: str) -> int:
     as a binary string. e.g given input of data = 11101100
     return 3
     '''
-
     count = 0
     for i in data:
         if i == '1':
@@ -20,7 +19,8 @@ def getspan(data: str) -> int:
 
 def validate(data: List) -> bool:
     '''Determine if input list is valid utf8'''
-    for i in range(len(data)):
+    i = 0
+    while i < len(data):
         span = getspan(data[i])
         # below conditionals identify incorrectly encoded binary strings
         if span == 1:
@@ -31,20 +31,33 @@ def validate(data: List) -> bool:
         for j in range(1, span):
             if data[i + j][:2] != '10':
                 return False
-        if span:
-            i += span
+        i += span if span else 1
     return True
 
+def encode(data: List) -> List:
+    '''encode a list of ints into binary with correct number
+    of unicode bytes. e.g 467 should be encoded in 2 bytes
+    i.e 16 bits, instead of 9 as returned by bin()
+    '''
+    encoding = []
+    for num in data:
+        binary = bin(num)[2:]
+        count = len(binary)
+        if count % 8:
+            extra = '0' * (8 * ((count // 8) + 1) - count)
+            binstring = extra + binary
+            for i in range(len(binstring) // 8):
+                idx = i * 8
+                encoding.append(binstring[idx: idx + 8])
+        else:
+            encoding.append(binary)
+    return encoding
 
 def validUTF8(data: List) -> bool:
     '''Determine if input data has valid utf8 encoding'''
     if len(data) == 0:
         return False
 
-    code = []
-    for num in data:
-        binary = bin(num)[2:]
-        binary = binary if len(binary) > 7 else '0' + binary
-        code.append(binary)
-
+    code = encode(data)
+    print(f'data: {code}')
     return validate(code)
