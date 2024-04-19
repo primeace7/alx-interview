@@ -59,5 +59,4 @@ def validUTF8(data: List) -> bool:
         return False
 
     code = encode(data)
-    print(f'data: {code}')
     return validate(code)
