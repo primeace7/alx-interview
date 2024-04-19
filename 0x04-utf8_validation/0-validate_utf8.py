@@ -22,8 +22,8 @@ def validate(data: List) -> bool:
     i = 0
     while i < len(data):
         span = getspan(data[i])
-        # below conditionals identify incorrectly encoded binary strings
-        if span == 1:
+        # below conditionals identify wrongly encoded binary strings
+        if span == 1 or span > 4:
             return False
         elif span and len(data[i:]) < span:
             return False
@@ -33,6 +33,7 @@ def validate(data: List) -> bool:
                 return False
         i += span if span else 1
     return True
+
 
 def encode(data: List) -> List:
     '''encode a list of ints into binary with correct number
@@ -53,10 +54,11 @@ def encode(data: List) -> List:
             encoding.append(binary)
     return encoding
 
+
 def validUTF8(data: List) -> bool:
     '''Determine if input data has valid utf8 encoding'''
     if len(data) == 0:
-        return False
+        return True
 
     code = encode(data)
     return validate(code)
