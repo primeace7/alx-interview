@@ -1,0 +1,2 @@
+This directory contains the solution file for the coin change problem: Given a list of coin denominations, each
+of infinite quantity, find the least number of coins that make up a given integer amount, say N.
