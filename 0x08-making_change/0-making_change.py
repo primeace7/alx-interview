@@ -11,6 +11,10 @@ def makeChange(coins: List, total: int) -> int:
         return 0
     elif total < min(coins):
         return -1
+    elif coins == [1]:
+        return total
+    elif total % max(coins) == 0:
+        return total // max(coins)
 
     min_val = min(coins)
     tracker = {i: -1 for i in range(min_val, total + 1)}
