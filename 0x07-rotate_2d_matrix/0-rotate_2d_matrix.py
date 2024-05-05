@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 '''A 2D matrix 90 degrees clockwise rotator implementation
 '''
-from typing import List
 
 
-def getside(matrix: List[List[int]], direction: int, depth: int) -> None:
+def getside(matrix, direction, depth):
     '''Fetch a side from a 2D matrix, assuming it is a
     collection of squares
     Example: [[1, 2, 3],
@@ -30,8 +29,7 @@ def getside(matrix: List[List[int]], direction: int, depth: int) -> None:
     return result
 
 
-def setside(matrix: List[List[int]], side: List[int],
-            direction: int, depth: int) -> None:
+def setside(matrix, side, direction, depth):
     '''Edut a side of a 2D matrix in-place, assuming it is a
     collection of squares
     Example: [[1, 2, 3],
@@ -53,7 +51,7 @@ def setside(matrix: List[List[int]], side: List[int],
             matrix[j][-1 - depth] = i
 
 
-def rotate_2d_matrix(matrix: List[List[int]]) -> None:
+def rotate_2d_matrix(matrix):
     '''Rotate a 2D matrix in place, assuming the input
     matrix will not be empty
     '''
