@@ -9,7 +9,7 @@ def makeChange(coins: List, total: int) -> int:
     '''
     if total <= 0:
         return 0
-    elif total < min(coins):
+    elif len(coins) == 0 or total < min(coins):
         return -1
     elif coins == [1]:
         return total
