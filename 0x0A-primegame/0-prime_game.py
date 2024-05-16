@@ -33,8 +33,8 @@ def isWinner(x, nums):
     the chosen number for each round
     '''
     wins = {'Ben': 0, 'Maria': 0}
-    if x == 0 or len(nums) == 0:
-        return 'Ben'
+    if x == 0 or len(nums) == 0 or len(nums) != x:
+        return None
 
     for i in range(x):
         game_round = nums[i]
@@ -44,5 +44,8 @@ def isWinner(x, nums):
             wins['Ben'] += 1
         else:
             wins['Maria'] += 1
+
+    if wins['Ben'] == wins['Maria']:
+        return None
 
     return 'Maria' if wins['Maria'] > wins['Ben'] else 'Ben'
