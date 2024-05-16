@@ -38,6 +38,8 @@ def isWinner(x, nums):
 
     for i in range(x):
         game_round = nums[i]
+        if game_round == 0:
+            continue
         primes = get_primes(game_round)
 
         if len(primes) % 2 == 0:
